@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CampaignController;
 use App\Http\Controllers\Admin\DonaturController;
+use App\Http\Controllers\Admin\DonationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,5 +36,9 @@ Route::prefix('admin')->group(function () {
 Route::resource('/category', CategoryController::class,['as'=>'admin']);
 //route Campaign
 Route::resource('/campaign', CampaignController::class,['as'=>'admin']);
-//route donatur
+//get route donatur
 Route::get('/donatur', [DonaturController::class,'index'])->name('admin.donatur.index');
+//get route donasi
+Route::get('/donasi', [DonationController::class,'index'])->name('admin.donation.index');
+//get filter donasi
+Route::get('/donasi/filter',[DonationController::class,'filter'])->name('admin.donation.filter');
