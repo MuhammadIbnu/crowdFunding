@@ -43,4 +43,4 @@ Route::get('/donasi', [DonationController::class,'index'])->name('admin.donation
 //get filter donasi
 Route::get('/donasi/filter',[DonationController::class,'filter'])->name('admin.donation.filter');
 //get profile
-Route::get('/profile',[ProfileController::class,'index'])->name('admin.profile,index');
+Route::get('/profile',[ProfileController::class,'index'])->name('admin.profile.index');
