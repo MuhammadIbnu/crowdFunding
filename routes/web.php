@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CampaignController;
 use App\Http\Controllers\Admin\DonaturController;
 use App\Http\Controllers\Admin\DonationController;
+use App\Http\Controllers\Admin\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
