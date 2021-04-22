@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\DashboardController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\CampaignController;
-use App\Http\Controllers\Admin\DonaturController;
-use App\Http\Controllers\Admin\DonationController;
-use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\CampaignController;
+use App\Http\Controllers\admin\DonaturController;
+use App\Http\Controllers\admin\DonationController;
+use App\Http\Controllers\admin\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
