@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\CampaignController;
 use App\Http\Controllers\admin\DonaturController;
 use App\Http\Controllers\admin\DonationController;
 use App\Http\Controllers\admin\ProfileController;
+use App\Http\Controllers\admin\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/donasi/filter',[DonationController::class,'filter'])->name('admin.donation.filter');
         //get profile
         Route::get('/profile',[ProfileController::class,'index'])->name('admin.profile.index');
+        //slider
+        Route::resource('/slider', SliderController::class, ['except' => ['show', 'create', 'edit', 'update'], 'as' => 'admin']);
 
     });
 });
