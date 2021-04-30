@@ -1,13 +1,7 @@
 <?php
-
+namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\admin\DashboardController;
-use App\Http\Controllers\admin\CategoryController;
-use App\Http\Controllers\admin\CampaignController;
-use App\Http\Controllers\admin\DonaturController;
-use App\Http\Controllers\admin\DonationController;
-use App\Http\Controllers\admin\ProfileController;
-use App\Http\Controllers\admin\SliderController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +15,7 @@ use App\Http\Controllers\admin\SliderController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::prefix('admin')->group(function () {

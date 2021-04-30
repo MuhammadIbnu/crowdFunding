@@ -13,8 +13,8 @@ class CampaignController extends Controller
 {
     //
     public function index(){
-        $campaigns = Campaign::latest()->when(request()->q, function($campaigns){
-            $campaigns = $campaigns->where('title','like','%' . request()->q . '%');
+        $campaigns = Campaign::latest()->when(request()->q, function($campaigns) {
+            $campaigns = $campaigns->where('title', 'like', '%'. request()->q . '%');
         })->paginate(10);
 
         return view('admin.campaign.index',compact('campaigns'));
@@ -120,6 +120,7 @@ class CampaignController extends Controller
     public function destroy($id){
         $campaign = Campaign::findOrFail($id);
         Storage::disk('local')->delete('public/campaigns/'.basename($campaign->image));
+        $campaign->delete();
         if ($campaign) {
             # code...
             return response()->json(['status'=>'success']);

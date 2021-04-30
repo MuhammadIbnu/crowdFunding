@@ -11,8 +11,8 @@ class SliderController extends Controller
 {
     //
     public function index(){
-        $slider = Slider::latest()->paginate(5);
-        return view('admin.slider.index',compact('slider'));
+        $sliders = Slider::latest()->paginate(5);
+        return view('admin.slider.index',compact('sliders'));
     }
 
     public function store(Request $request){
