@@ -14,7 +14,7 @@ class Category extends Model
         'image'
     ];
 
-    public function campaign(){
+    public function campaigns(){
         return $this->hasMany(Campaign::class);
     }
 

@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//api login & register
+Route::post('/register', [RegisterController::class, 'register']);
+Route::post('/login', [LoginController::class, 'login']);
+//api category
+Route::get('/category', [CategoryController::class, 'index']);
+Route::get('/category/{slug}', [CategoryController::class, 'show']);
+Route::get('/categoryHome', [CategoryController::class, 'categoryHome']);

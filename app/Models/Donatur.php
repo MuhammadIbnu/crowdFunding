@@ -4,39 +4,55 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Passport\HasApiTokens;
 
-class Donatur extends Model
+class Donatur extends Authenticatable
 {
-    use HasFactory;
-    protected $fillable =[
-        'name',
-        'email',
-        'password',
-        'avatar'
+    use HasFactory, HasApiTokens;
+
+    /**
+     * fillable
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'email', 'password', 'avatar'
     ];
 
-    protected $hide =[
+    /**
+     * hidden
+     *
+     * @var array
+     */
+    protected $hidden = [
         'password',
-        'remember_token'
+        'remember_token',
     ];
     
     /**
-     * Get all of the donation for the Donatur
+     * donations
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return void
      */
-    public function donations(): HasMany
+    public function donations()
     {
         return $this->hasMany(Donation::class);
     }
-
-    public function getAvatarAttribute($avatar){
-        if ($avatar != null) {
-            # code...
-            return asset('Storage/donaturs/'.$avatar);
-        }else {
-            # code...
+    
+    /**
+     * getAvatarAttribute
+     *
+     * @param  mixed $avatar
+     * @return void
+     */
+    public function getAvatarAttribute($avatar)
+    {
+        if ($avatar != null) :
+            return asset('storage/donaturs/'.$avatar);
+        else :
             return 'https://ui-avatars.com/api/?name=' . str_replace(' ', '+', $this->name) . '&background=4e73df&color=ffffff&size=100';
-        }
+        endif;
     }
+    
 }
