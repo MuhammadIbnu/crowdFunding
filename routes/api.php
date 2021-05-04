@@ -24,3 +24,6 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/category', [CategoryController::class, 'index']);
 Route::get('/category/{slug}', [CategoryController::class, 'show']);
 Route::get('/categoryHome', [CategoryController::class, 'categoryHome']);
+//api Campaign
+Route::get('/campaign', [CampaignController::class, 'index']);
+Route::get('/campaign/{slug}', [CampaignController::class, 'show']);

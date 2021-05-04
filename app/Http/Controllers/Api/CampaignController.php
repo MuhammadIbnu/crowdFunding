@@ -11,10 +11,9 @@ class CampaignController extends Controller
 {
     //
     public function index(){
-        $campaigns = Campaign::with('user')->with('sumDonation')->when(request()->q, function($campaigns){
-            $campaigns = $campaigns->where('title', 'like', '%'. request()->q . '%');
-        })->latest()->paginate(5);
-
+        //get data campaigns
+        $campaigns = Campaign::with('user')->with('sumDonation')->when(request()->q, function($campaigns) {
+        $campaigns = $campaigns->where('title', 'like', '%'. request()->q . '%');})->latest()->paginate(5);
         //return with response JSON
         return response()->json([
             'success' => true,
