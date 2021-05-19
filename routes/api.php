@@ -29,3 +29,11 @@ Route::get('/campaign', [CampaignController::class, 'index']);
 Route::get('/campaign/{slug}', [CampaignController::class, 'show']);
 //api Slider
 Route::get('/sliders',[SliderController::class,'index']);
+//api profile
+Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth:api');
+Route::post('/profile', [ProfileController::class, 'update'])->middleware('auth:api');
+Route::post('/profile/password', [ProfileController::class, 'updatePassword'])->middleware('auth:api');
+//api donation
+Route::get('/donation', [DonationController::class, 'index'])->middleware('auth:api');
+Route::post('/donation', [DonationController::class, 'store'])->middleware('auth:api');
+Route::post('/donation/notification', [DonationController::class, 'notificationHandler']);
