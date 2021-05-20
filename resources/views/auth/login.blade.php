@@ -11,7 +11,7 @@
             {{ session('status') }}
         </div>
         @endif
-        <form class="mt-4" action="{{ route('login') }}" method="POST">
+        <form class="mt-4" action="{{ 'login' }}" method="POST">
             @csrf
             <label class="block">
                 <span class="text-gray-700 text-sm">Email</span>
